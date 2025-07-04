@@ -43,12 +43,20 @@ import FooterView from '@/views/FooterView.vue'
 
 .footer {
   padding: 1rem;
-  flex-shrink: 0; /* Prevents footer from shrinking */
-  margin-top: auto; /* Pushes footer to bottom */
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
+  #app {
+    flex-direction: column; /* Stack vertically on mobile */
+  }
+  
+  .main-container {
+    padding-top: 80px; /* Account for fixed mobile header */
+  }
+  
   .main-content {
     padding: 1rem;
   }
