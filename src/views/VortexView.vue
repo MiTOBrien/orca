@@ -18,14 +18,15 @@
       <img src="/SectionOverview.png" alt="Section Overview" />
     </div>
   </div>
+  <hr />
   <h2>Sections 1-3 - approximately 18-20 feet all along one wall</h2>
     <div class="routes-section">
     <h3>Routes section 1:</h3>
     <div class="routes-list">
       <div class="hover-container">
-        <span class="hover-text">1. Swamp Thang (5.7+)</span>
+        <span class="hover-text">Vortex Area 1-3 Overview</span>
         <div class="hover-image">
-          <img src="/SwampThang.png" alt="Swamp Thang Route" />
+          <img src="/vortex_section1-3.png" alt="Vortex Area 1-3 Overview" />
         </div>
       </div>
 
@@ -55,18 +56,30 @@
     <li>Cheese Grater (5.7)</li>
     <li>Stupid Rope (5.6)</li>
   </ol>
+  <hr />
   <h2>Section 4</h2>
   <p>No routes established in this section yet.</p>
+  <hr />
   <h2>Section 5 - approximately 25 feet</h2>
+    <div class="hover-container">
+    <span class="hover-text">section overview</span>
+    <div class="hover-image">
+      <img src="/vortex_section5.png" alt="Section Overview" />
+    </div>
+  </div>
   <ol>
     <li>Ants In My Pants (5.9)</li>
     <li>Ants In My Crack (5.7)</li>
   </ol>
+  <hr />
   <h2>Section 6</h2>
   <p>No routes established in this section yet.</p>
 </template>
 
 <style scoped>
+hr {
+  margin: 10px;
+}
 .hover-container {
   position: relative;
   display: inline-block;
@@ -99,13 +112,18 @@
     opacity 0.3s ease,
     visibility 0.3s ease;
   z-index: 1000;
-  max-width: 300px;
+  max-width: 1200px; /* Much larger container */
+  max-height: 600px; /* Limit overall height */
 }
 
 .hover-image img {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 600px; /* Ensure minimum readable size */
   width: auto;
   height: auto;
   border-radius: 4px;
+  object-fit: contain; /* Maintain aspect ratio */
 }
 
 .hover-container:hover .hover-image {
@@ -124,6 +142,7 @@
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #ddd;
+  border-bottom: 8px solid transparent;
+  border-bottom-color: #ddd;
 }
 </style>

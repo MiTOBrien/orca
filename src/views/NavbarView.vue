@@ -12,31 +12,24 @@ function toggleMenu() {
   <aside class="sidebar" :class="{ 'sidebar-open': isOpen }">
     <div class="sidebar-header">
       <div class="logo">
-        <!-- <img src="@/assets/logo.png" alt="ORCA Logo" /> -->
-        <h1>ORCA</h1>
+        <img src="/orca_logo.jpg" alt="ORCA Logo" />
       </div>
       <button @click="toggleMenu" class="menu-toggle">
         <span v-if="!isOpen">☰</span>
         <span v-else>✖</span>
       </button>
     </div>
-    
+
     <nav class="sidebar-nav">
       <ul class="nav-list" :class="{ open: isOpen }">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/about" class="nav-link">About</router-link>
-        </li>
-        <li class="nav-item">
           <router-link to="/vortex" class="nav-link">Vortex Routes</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/anthill" class="nav-link">Anthill Routes</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/contact" class="nav-link">Contact</router-link>
         </li>
       </ul>
     </nav>
@@ -59,15 +52,17 @@ function toggleMenu() {
 
 .sidebar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the logo */
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #555;
+  position: relative; /* For positioning the menu toggle */
 }
 
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .logo h1 {
@@ -76,8 +71,8 @@ function toggleMenu() {
 }
 
 .logo img {
-  height: 40px;
-  margin-right: 10px;
+  height: 50px;
+  margin-right: 0; /* Remove right margin since it's centered */
 }
 
 .menu-toggle {
@@ -87,6 +82,8 @@ function toggleMenu() {
   font-size: 1.5rem;
   cursor: pointer;
   display: none;
+  position: absolute; /* Position absolutely within the header */
+  right: 1rem; /* Keep it on the right side */
 }
 
 .sidebar-nav {
@@ -127,19 +124,19 @@ function toggleMenu() {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
   }
-  
+
   .sidebar-open {
     transform: translateX(0);
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   .nav-list {
     display: none;
   }
-  
+
   .nav-list.open {
     display: block;
   }
@@ -151,11 +148,11 @@ function toggleMenu() {
     position: relative;
     transform: none;
   }
-  
+
   .nav-list {
     display: block;
   }
-  
+
   .menu-toggle {
     display: none;
   }
