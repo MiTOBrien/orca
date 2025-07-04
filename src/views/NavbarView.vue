@@ -1,11 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isOpen = ref(false)
+const route = useRoute()
 
 function toggleMenu() {
   isOpen.value = !isOpen.value
 }
+
+// Watch for route changes and close the menu on mobile
+watch(route, () => {
+  isOpen.value = false
+})
 </script>
 
 <template>
