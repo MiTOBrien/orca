@@ -9,18 +9,18 @@ function toggleMenu() {
 </script>
 
 <template>
-  <aside class="sidebar" :class="{ 'sidebar-open': isOpen }">
-    <!-- Mobile header that's always visible -->
-    <div class="mobile-header">
-      <div class="logo">
-        <img src="/orca_logo.jpg" alt="ORCA Logo" />
-      </div>
-      <button @click="toggleMenu" class="menu-toggle">
-        <span v-if="!isOpen">☰</span>
-        <span v-else>✖</span>
-      </button>
+  <!-- Mobile header that's always visible - OUTSIDE the sidebar -->
+  <div class="mobile-header">
+    <div class="logo">
+      <img src="/orca_logo.jpg" alt="ORCA Logo" />
     </div>
+    <button @click="toggleMenu" class="menu-toggle">
+      <span v-if="!isOpen">☰</span>
+      <span v-else>✖</span>
+    </button>
+  </div>
 
+  <aside class="sidebar" :class="{ 'sidebar-open': isOpen }">
     <!-- Desktop header -->
     <div class="desktop-header">
       <div class="logo">
