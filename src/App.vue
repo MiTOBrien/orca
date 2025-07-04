@@ -24,18 +24,18 @@ import FooterView from '@/views/FooterView.vue'
 <style scoped>
 #app {
   display: flex;
-  height: 100vh;
+  min-height: 100vh; /* Ensure full viewport height */
 }
 
 .main-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* Remove min-height: 100vh - this was causing the issue */
 }
 
 .main-content {
-  flex: 1;
+  flex: 1; /* This will grow to fill available space */
   overflow-y: auto;
   padding: 2rem;
   background-color: #f8f9fa;
@@ -43,17 +43,19 @@ import FooterView from '@/views/FooterView.vue'
 
 .footer {
   padding: 1rem;
-  flex-shrink: 0;
-  margin-top: auto;
+  flex-shrink: 0; /* Footer won't shrink */
+  /* Remove margin-top: auto - not needed with this setup */
 }
 
 /* Mobile responsiveness */
 @media (max-width: 820px) {
   #app {
     flex-direction: column; /* Stack vertically on mobile */
+    min-height: 100vh; /* Ensure full height on mobile too */
   }
   
   .main-container {
+    flex: 1; /* Take up remaining space after navbar */
     padding-top: 80px; /* Account for fixed mobile header */
   }
   
