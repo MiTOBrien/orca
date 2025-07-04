@@ -121,24 +121,47 @@ function toggleMenu() {
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
+    height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    z-index: 9999;
+  }
+
+  .sidebar-header {
+    /* Keep header visible on mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 10000;
+    transform: translateX(0); /* Header always visible */
   }
 
   .sidebar-open {
     transform: translateX(0);
   }
 
+  .sidebar-open .sidebar-header {
+    position: relative; /* When open, header moves with sidebar */
+  }
+
   .menu-toggle {
     display: block;
+    z-index: 10001;
   }
 
   .nav-list {
     display: none;
+    margin-top: 80px; /* Account for fixed header */
   }
 
   .nav-list.open {
     display: block;
+  }
+
+  .sidebar-nav {
+    padding-top: 0; /* Remove top padding since header is fixed */
   }
 }
 
