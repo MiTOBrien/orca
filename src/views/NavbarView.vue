@@ -10,7 +10,8 @@ function toggleMenu() {
 
 <template>
   <aside class="sidebar" :class="{ 'sidebar-open': isOpen }">
-    <div class="sidebar-header">
+    <!-- Mobile header that's always visible -->
+    <div class="mobile-header">
       <div class="logo">
         <img src="/orca_logo.jpg" alt="ORCA Logo" />
       </div>
@@ -18,6 +19,13 @@ function toggleMenu() {
         <span v-if="!isOpen">☰</span>
         <span v-else>✖</span>
       </button>
+    </div>
+
+    <!-- Desktop header -->
+    <div class="desktop-header">
+      <div class="logo">
+        <img src="/orca_logo.jpg" alt="ORCA Logo" />
+      </div>
     </div>
 
     <nav class="sidebar-nav">
@@ -50,13 +58,16 @@ function toggleMenu() {
   z-index: 1000;
 }
 
-.sidebar-header {
+.desktop-header {
   display: flex;
-  justify-content: center; /* Center the logo */
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #555;
-  position: relative; /* For positioning the menu toggle */
+}
+
+.mobile-header {
+  display: none;
 }
 
 .logo {
@@ -65,14 +76,8 @@ function toggleMenu() {
   justify-content: center;
 }
 
-.logo h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
 .logo img {
   height: 50px;
-  margin-right: 0; /* Remove right margin since it's centered */
 }
 
 .menu-toggle {
@@ -81,9 +86,9 @@ function toggleMenu() {
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
-  display: none;
-  position: absolute; /* Position absolutely within the header */
-  right: 1rem; /* Keep it on the right side */
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .sidebar-nav {
@@ -118,42 +123,41 @@ function toggleMenu() {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .sidebar {
     width: 100%;
-    height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 9999;
-  }
-
-  .sidebar-header {
-    /* Keep header visible on mobile */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    z-index: 10000;
-    transform: translateX(0); /* Header always visible */
   }
 
   .sidebar-open {
     transform: translateX(0);
   }
 
-  .sidebar-open .sidebar-header {
-    position: relative; /* When open, header moves with sidebar */
+  .desktop-header {
+    display: none;
   }
 
-  .menu-toggle {
-    display: block;
-    z-index: 10001;
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #555;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; /* Add right: 0 for full width */
+    width: 100%;
+    background-color: #333;
+    z-index: 10000;
+    box-sizing: border-box;
   }
 
   .nav-list {
     display: none;
-    margin-top: 80px; /* Account for fixed header */
+    margin-top: 80px;
   }
 
   .nav-list.open {
@@ -161,12 +165,12 @@ function toggleMenu() {
   }
 
   .sidebar-nav {
-    padding-top: 0; /* Remove top padding since header is fixed */
+    padding-top: 0;
   }
 }
 
 /* Desktop styles */
-@media (min-width: 769px) {
+@media (min-width: 821px) {
   .sidebar {
     position: relative;
     transform: none;
