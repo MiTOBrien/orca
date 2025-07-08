@@ -77,72 +77,12 @@
 </template>
 
 <style scoped>
-hr {
-  margin: 10px;
-}
-.hover-container {
-  position: relative;
-  display: inline-block;
-  /* Center the entire container */
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+/* Component-specific styles only */
+.routes-section {
+  /* Add any VortexView-specific styling here */
 }
 
-.hover-text {
-  color: #007bff;
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-.hover-image {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-  z-index: 1000;
-  max-width: 1200px; /* Much larger container */
-  max-height: 600px; /* Limit overall height */
-}
-
-.hover-image img {
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 600px; /* Ensure minimum readable size */
-  width: auto;
-  height: auto;
-  border-radius: 4px;
-  object-fit: contain; /* Maintain aspect ratio */
-}
-
-.hover-container:hover .hover-image {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Optional: Add a small arrow pointing up */
-.hover-image::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-bottom-color: #ddd;
+.routes-list {
+  /* Add any VortexView-specific styling here */
 }
 </style>
