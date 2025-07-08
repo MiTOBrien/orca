@@ -10,6 +10,8 @@ body {
   background-color: #f8f9fa;
   background-color: tan;
   color: #343a40;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 main {
@@ -35,99 +37,98 @@ hr {
   margin: 10px;
 }
 
-.hover-container {
-  position: relative;
-  display: inline-block;
-  /* Center the entire container */
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+/* Mobile-friendly image toggle system */
+.image-toggle-container {
+  text-align: center;
+  margin: 20px 0;
 }
 
-.hover-text {
-  color: #007bff;
+.image-toggle-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
   cursor: pointer;
-  text-decoration: underline;
+  font-size: 16px;
   font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-bottom: 15px;
+  min-height: 44px; /* Minimum touch target size */
 }
 
-.hover-image {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+.image-toggle-btn:hover {
+  background: #0056b3;
+}
+
+.image-toggle-btn:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.image-toggle-btn.active {
+  background: #28a745;
+}
+
+.image-toggle-btn.active:hover {
+  background: #1e7e34;
+}
+
+.image-display {
   background: white;
   border: 2px solid #ddd;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-  z-index: 1000;
-  max-width: 1200px; /* Much larger container */
-  max-height: 600px; /* Limit overall height */
+  margin: 0 auto;
+  max-width: 100%;
+  animation: fadeIn 0.3s ease;
 }
 
-.hover-image img {
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 600px; /* Ensure minimum readable size */
-  width: auto;
+.image-display img {
+  width: 100%;
   height: auto;
   border-radius: 4px;
-  object-fit: contain; /* Maintain aspect ratio */
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
 }
 
-.hover-container:hover .hover-image {
-  opacity: 1;
-  visibility: visible;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Optional: Add a small arrow pointing up */
-.hover-image::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-bottom-color: #ddd;
-}
-
-/* Mobile responsive fixes */
+/* Mobile optimizations */
 @media (max-width: 768px) {
-  .hover-image {
-    /* Make sure the modal doesn't exceed screen width */
-    max-width: calc(100vw - 40px); /* Account for padding and margins */
-    left: 50%;
-    transform: translateX(-50%);
-    /* Adjust positioning to stay within viewport */
-    right: 20px;
-    left: 20px;
-    transform: none;
+  .image-toggle-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
   }
   
-  .hover-image img {
-    /* Remove the min-width constraint on mobile */
-    min-width: unset;
-    width: 100%;
-    height: auto;
+  .image-display {
+    margin: 0 10px;
+    padding: 10px;
   }
 }
 
 /* For very small screens */
 @media (max-width: 480px) {
-  .hover-image {
-    max-width: calc(100vw - 20px);
-    right: 10px;
-    left: 10px;
-    padding: 5px;
+  .image-toggle-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .image-display {
+    margin: 0 5px;
+    padding: 8px;
   }
 }
