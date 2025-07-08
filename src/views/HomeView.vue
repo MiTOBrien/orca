@@ -6,6 +6,7 @@
     <div class="logo-container">
       <img src="../../public/orca_logo.jpg" alt="Ocala Rock Climbing Association Logo" />
     </div>
+    <h1>Lake County, Florida</h1>
     <hr />
     <p>Florida is not typically known for rock climbing and while there are fantastic indoor gyms spread across the sunshine state there is something special about getting outdoors and crimping real rock! Nestled in the Vortex area of the Santos mountain bike trail system are untapped rock climbing routes waiting for you to test your skills. If you are new to rock climbing, let us show you the ropes! Come join us!</p>
     <h2>The ORCA Creed</h2>
