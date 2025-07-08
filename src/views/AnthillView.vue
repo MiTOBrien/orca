@@ -12,7 +12,7 @@
     to the base after setting up your anchor messy. During this time you may want to rappel down
     from above to climb in this area.
   </p>
-
+  <hr />
   <div class="routes-section">
     <h3>Routes:</h3>
     <div class="routes-list">
