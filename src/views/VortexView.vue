@@ -108,12 +108,4 @@ const { toggleImage, isImageVisible } = useImageToggle()
 </template>
 
 <style scoped>
-/* Only component-specific styles here */
-.routes-section {
-  /* Add any VortexView-specific styling here */
-}
-
-.routes-list {
-  /* Add any VortexView-specific styling here */
-}
 </style>
