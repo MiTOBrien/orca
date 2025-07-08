@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import { useImageToggle } from '@/composables/useImageToggle'
+
+// Use the reusable composable
+const { toggleImage, isImageVisible } = useImageToggle()
+</script>
 
 <template>
   <h1>Ant Hill Routes</h1>
@@ -15,28 +20,22 @@
   <hr />
   <div class="routes-section">
     <h3>Routes:</h3>
-    <div class="routes-list">
-      <div class="hover-container">
-        <span class="hover-text">Ant Hill Section</span>
-        <div class="hover-image">
-          <img src="/SwampThang.png" alt="Swamp Thang Route" />
-        </div>
+    <div class="image-toggle-container">
+      <button
+        @click="toggleImage('anthill-section')"
+        class="image-toggle-btn"
+        :class="{ active: isImageVisible('anthill-section') }"
+      >
+        {{ isImageVisible('anthill-section') ? 'Hide' : 'Show' }} Ant Hill Section Overview
+      </button>
+      <div v-if="isImageVisible('anthill-section')" class="image-display">
+        <img src="/SwampThang.png" alt="Swamp Thang Route" />
       </div>
-      <ol>
-        <li>Swamp Thang (5.7+)</li>
-      </ol>
-      <!-- You can add more routes here -->
-      <!-- 
-      <div class="hover-container">
-        <span class="hover-text">Another Route (5.8)</span>
-        <div class="hover-image">
-          <img src="/AnotherRoute.png" alt="Another Route" />
-        </div>
-      </div>
-      -->
     </div>
   </div>
+  <ol>
+    <li>Swamp Thang (5.7+)</li>
+  </ol>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
