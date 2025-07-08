@@ -19,7 +19,9 @@ watch(route, () => {
   <!-- Mobile header that's always visible - OUTSIDE the sidebar -->
   <div class="mobile-header">
     <div class="logo">
-      <img src="/orca_logo.jpg" alt="ORCA Logo" />
+      <router-link to="/" class="logo-link">
+        <img src="/orca_logo.jpg" alt="ORCA Logo" />
+      </router-link>
     </div>
     <button @click="toggleMenu" class="menu-toggle">
       <span v-if="!isOpen">☰</span>
@@ -31,7 +33,9 @@ watch(route, () => {
     <!-- Desktop header -->
     <div class="desktop-header">
       <div class="logo">
-        <img src="/orca_logo.jpg" alt="ORCA Logo" />
+        <router-link to="/" class="logo-link">
+          <img src="/orca_logo.jpg" alt="ORCA Logo" />
+        </router-link>
       </div>
     </div>
 
@@ -81,6 +85,18 @@ watch(route, () => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
 }
 
 .logo img {
