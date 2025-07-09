@@ -35,38 +35,35 @@ const { toggleImage, isImageVisible } = useImageToggle()
   <h2>Sections 1-3 - approximately 18-20 feet all along one wall</h2>
 
   <div class="routes-section">
-    <div class="routes-list">
-      <div class="image-toggle-container">
-        <button
+    <div class="image-toggle-container">
+      <button
         @click="toggleImage('vortex-1-3')"
         class="image-toggle-btn"
         :class="{ active: isImageVisible('vortex-1-3') }"
-        >
+      >
         {{ isImageVisible('vortex-1-3') ? 'Hide' : 'Show' }} Vortex Area 1-3 Overview
       </button>
       <h3>Routes:</h3>
-        <div v-if="isImageVisible('vortex-1-3')" class="image-display">
-          <img src="/vortex_section1-3.png" alt="Vortex Area 1-3 Overview" />
-        </div>
+      <div v-if="isImageVisible('vortex-1-3')" class="image-display">
+        <img src="/vortex_section1-3.png" alt="Vortex Area 1-3 Overview" />
       </div>
     </div>
+    <ol>
+      <li>Spelunking (5.?)</li>
+      <li>Shinebox (5.?)</li>
+      <li>Twisted Trunk (5.?)</li>
+      <li>Dove (Recommended rappel only)</li>
+      <li>Gopher (Recommended rappel only)</li>
+      <li>Corn Snake (5.?)</li>
+      <li>Armadillo (Recommended rappel only)</li>
+      <li>Elevator (Path to top for setting anchors)</li>
+      <li>I'm Your Huckleberry (5.6)</li>
+      <li>Squirrel (5.5)</li>
+      <li>Falling Iguana (5.6)</li>
+      <li>Cheese Grater (5.7)</li>
+      <li>Stupid Rope (5.6)</li>
+    </ol>
   </div>
-
-  <ol>
-    <li>Spelunking (5.?)</li>
-    <li>Shinebox (5.?)</li>
-    <li>Twisted Trunk (5.?)</li>
-    <li>Dove (Recommended rappel only)</li>
-    <li>Gopher (Recommended rappel only)</li>
-    <li>Corn Snake (5.?)</li>
-    <li>Armadillo (Recommended rappel only)</li>
-    <li>Elevator (Path to top for setting anchors)</li>
-    <li>I'm Your Huckleberry (5.6)</li>
-    <li>Squirrel (5.5)</li>
-    <li>Falling Iguana (5.6)</li>
-    <li>Cheese Grater (5.7)</li>
-    <li>Stupid Rope (5.6)</li>
-  </ol>
 
   <hr />
   <h2>Section 4</h2>
@@ -78,23 +75,22 @@ const { toggleImage, isImageVisible } = useImageToggle()
   <div class="routes-section">
     <div class="image-toggle-container">
       <button
-      @click="toggleImage('section-5')"
-      class="image-toggle-btn"
-      :class="{ active: isImageVisible('section-5') }"
+        @click="toggleImage('section-5')"
+        class="image-toggle-btn"
+        :class="{ active: isImageVisible('section-5') }"
       >
-      {{ isImageVisible('section-5') ? 'Hide' : 'Show' }} Section 5 Overview
-    </button>
-    <h3>Routes:</h3>
+        {{ isImageVisible('section-5') ? 'Hide' : 'Show' }} Section 5 Overview
+      </button>
+      <h3>Routes:</h3>
       <div v-if="isImageVisible('section-5')" class="image-display">
         <img src="/vortex_section5.png" alt="Section 5 Overview" />
       </div>
     </div>
+    <ol>
+      <li>Ants In My Pants (5.9)</li>
+      <li>Ants In My Crack (5.7)</li>
+    </ol>
   </div>
-
-  <ol>
-    <li>Ants In My Pants (5.9)</li>
-    <li>Ants In My Crack (5.7)</li>
-  </ol>
 
   <hr />
   <h2>Section 6</h2>
