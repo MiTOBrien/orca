@@ -19,16 +19,16 @@ const { toggleImage, isImageVisible } = useImageToggle()
   </p>
   <hr />
   <div class="routes-section">
-    <h3>Routes:</h3>
     <div class="image-toggle-container">
       <button
-        @click="toggleImage('anthill-section')"
-        class="image-toggle-btn"
-        :class="{ active: isImageVisible('anthill-section') }"
+      @click="toggleImage('anthill-section')"
+      class="image-toggle-btn"
+      :class="{ active: isImageVisible('anthill-section') }"
       >
-        {{ isImageVisible('anthill-section') ? 'Hide' : 'Show' }} Ant Hill Section Overview
-      </button>
-      <div v-if="isImageVisible('anthill-section')" class="image-display">
+      {{ isImageVisible('anthill-section') ? 'Hide' : 'Show' }} Ant Hill Section Overview
+    </button>
+    <h3>Routes:</h3>
+    <div v-if="isImageVisible('anthill-section')" class="image-display">
         <img src="/SwampThang.png" alt="Swamp Thang Route" />
       </div>
     </div>
